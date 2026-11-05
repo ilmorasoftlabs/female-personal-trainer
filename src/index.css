@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --color-volt: #ccff00;
+    --color-volt-hover: #b8f000;
+    --color-coral: #ff5a36;
+    --color-dark-bg: #0c0d0e;
+    --color-card-bg: #141618;
+    --color-card-border: #24282c;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0c0d0e;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+}
+
+/* Future.co volt glow and accent tokens */
+.text-volt {
+  color: #ccff00;
+}
+
+.bg-volt {
+  background-color: #ccff00;
+}
+
+.bg-volt-hover:hover {
+  background-color: #b8f000;
+}
+
+.border-volt {
+  border-color: #ccff00;
+}
+
+.volt-glow {
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.25);
+}
+
+.volt-glow-lg {
+  box-shadow: 0 0 45px rgba(204, 255, 0, 0.35);
+}
+
+/* Glass & Card Surfaces matching Future.co dark aesthetic */
+.future-card {
+  background: #141618;
+  border: 1px solid #23272b;
+  border-radius: 1.25rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.future-card-hover:hover {
+  background: #181b1e;
+  border-color: #383e45;
+  transform: translateY(-2px);
+}
+
+.future-glass {
+  background: rgba(18, 20, 22, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom subtle noise background */
+.future-mesh {
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(204, 255, 0, 0.04) 0px, transparent 55%),
+    radial-gradient(at 85% 85%, rgba(255, 90, 54, 0.03) 0px, transparent 55%),
+    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0d0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #24282c;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #383e45;
+}
+
+/* Pulse animation for live online indicator */
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
